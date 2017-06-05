@@ -1,0 +1,59 @@
+﻿<Page
+    x:Name="root"
+    x:Class="RPNCalc.SettingsPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:RPNCalc"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:calc="using:RPNCalc.Controls"
+    mc:Ignorable="d">
+
+    <Page.Transitions>
+        <TransitionCollection>
+            <NavigationThemeTransition>
+                <NavigationThemeTransition.DefaultNavigationTransitionInfo>
+                    <ContinuumNavigationTransitionInfo/>
+                </NavigationThemeTransition.DefaultNavigationTransitionInfo>
+            </NavigationThemeTransition>
+        </TransitionCollection>
+    </Page.Transitions>
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="0" Text="Settings" FontSize="30" Margin="15,15,15,0"/>
+        <ScrollViewer Grid.Row="1" Margin="0,10,0,0">
+            <StackPanel Padding="15,0,15,0">
+                <TextBlock Text="Number of significant digits to display" Margin="0,0,0,0"/>
+                <Slider x:Name="sFig" Minimum="2" Maximum="15" ValueChanged="OnFiguresChanged"/>
+                <TextBlock Text="Error margin for equality testing (10ˣ)" Margin="0,10,0,0"/>
+                <Slider x:Name="sEps" Minimum="1" Maximum="15" ValueChanged="OnEpsilonChanged"/>
+                
+                <TextBlock Text="Maximum loop iteration limit (×1000)" Margin="0,10,0,0"/>
+                <Slider x:Name="sIter" Minimum="1" Maximum="1000" StepFrequency="5" ValueChanged="OnIterLimitChanged"/>
+                <TextBlock Text="Maximum recursion depth limit (×10)" Margin="0,10,0,0"/>
+                <Slider x:Name="sRecur" Minimum="1" Maximum="15" StepFrequency="1" ValueChanged="OnRecurLimitChanged"/>
+                
+                <TextBlock Text="Back up and restore user function table" Margin="0,10,0,0"/>
+                <Grid Margin="0,10,0,0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Button Grid.Column="0" HorizontalAlignment="Stretch" Margin="0,0,5,0" Content="Back up" Click="OnBackupClick"/>
+                    <Button Grid.Column="1" HorizontalAlignment="Stretch" Margin="5,0,0,0" Content="Restore" Click="OnRestoreClick"/>
+                </Grid>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</Page>

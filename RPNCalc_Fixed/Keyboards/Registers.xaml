@@ -1,0 +1,33 @@
+﻿<UserControl
+    x:Class="RPNCalc.Keyboards.Registers"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:RPNCalc.Keyboards"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:calc="using:RPNCalc.Controls"
+    mc:Ignorable="d">
+
+    <StackPanel VerticalAlignment="Bottom">
+        <calc:UniformGrid Orientation="Horizontal" AspectRatio="1.5" Columns="6">
+            <calc:Button Text="a" Action="f:$rA"/>
+            <calc:Button Text="b" Action="f:$rB"/>
+            <calc:Button Text="c" Action="f:$rC"/>
+            <calc:Button Text="d" Action="f:$rD"/>
+            <calc:Button Text="e" Action="f:$rE"/>
+            <calc:Button Text="f" Action="f:$rF"/>
+            <calc:Button Text="u" Action="f:$rU"/>
+            <calc:Button Text="v" Action="f:$rV"/>
+            <calc:Button Text="w" Action="f:$rW"/>
+            <calc:Button Text="x" Action="f:$rX"/>
+            <calc:Button Text="y" Action="f:$rY"/>
+            <calc:Button Text="z" Action="f:$rZ"/>
+            <calc:Button Text="α" Action="f:$g1"/>
+            <calc:Button Text="β" Action="f:$g2"/>
+            <calc:Button Text="γ" Action="f:$g3"/>
+            <calc:Button Text="δ" Action="f:$g4"/>
+            <calc:Button Text="ε" Action="f:$g5"/>
+            <calc:Button Text="&#xE13E;" Click="OnInsertRegister"/>
+        </calc:UniformGrid>
+    </StackPanel>
+</UserControl>

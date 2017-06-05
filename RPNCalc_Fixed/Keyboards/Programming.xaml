@@ -1,0 +1,65 @@
+﻿<UserControl
+    x:Class="RPNCalc.Keyboards.Programming"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:RPNCalc.Keyboards"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:calc="using:RPNCalc.Controls"
+    mc:Ignorable="d">
+
+    <calc:UniformGrid Orientation="Horizontal" AspectRatio="1.5" Columns="6">
+        <calc:Button Text="if" Action="f:@if">
+            <FlyoutBase.AttachedFlyout>
+                <MenuFlyout>
+                    <calc:FlyoutItem Text="else" Action="f:@else"/>
+                    <calc:FlyoutItem Text="then" Action="f:@then"/>
+                </MenuFlyout>
+            </FlyoutBase.AttachedFlyout>
+        </calc:Button>
+        <calc:Button Text="do" Action="f:@do">
+            <FlyoutBase.AttachedFlyout>
+                <MenuFlyout>
+                    <calc:FlyoutItem Text="until" Action="f:@until"/>
+                    <calc:FlyoutItem Text="while" Action="f:@while"/>
+                    <calc:FlyoutItem Text="loop" Action="f:@loop"/>
+                    <MenuFlyoutSeparator/>
+                    <calc:FlyoutItem Text="for" Action="f:@for"/>
+                </MenuFlyout>
+            </FlyoutBase.AttachedFlyout>
+        </calc:Button>
+        <calc:Button Text="↦" Action="f:@set"/>
+        <calc:Button Text="?" Action="f:@read:"/>
+        <!--<calc:Button Text="=" Action="f:eq">
+            <FlyoutBase.AttachedFlyout>
+                <MenuFlyout>
+                    <calc:FlyoutItem Text="≠" Action="f:neq"/>
+                    <calc:FlyoutItem Text="&lt;" Action="f:lt"/>
+                    <calc:FlyoutItem Text="&gt;" Action="f:gt"/>
+                </MenuFlyout>
+            </FlyoutBase.AttachedFlyout>
+        </calc:Button>-->
+        <calc:Button Text="=" Action="f:eq"/>
+        <calc:Button Text="≠" Action="f:neq"/>
+        <calc:Button Text="&lt;" Action="f:lt"/>
+        <calc:Button Text="&gt;" Action="f:gt"/>
+        <!--<calc:Button Text="∧" Action="f:and">
+            <FlyoutBase.AttachedFlyout>
+                <MenuFlyout>
+                    <calc:FlyoutItem Text="∨" Action="f:or"/>
+                    <calc:FlyoutItem Text="¬" Action="f:not"/>
+                </MenuFlyout>
+            </FlyoutBase.AttachedFlyout>
+        </calc:Button>-->
+        <calc:Button Text="¬" Action="f:not"/>
+        <calc:Button Text="∧" Action="f:and"/>
+        <calc:Button Text="∨" Action="f:or"/>
+        <calc:Button Text="S&gt;" Action="f:dup"/>
+        <calc:Button Text="S&lt;" Action="f:drop"/>
+        <calc:Button Text="S≷" Action="f:swap"/>
+        <calc:Button Text="S≧" Action="f:over"/>
+        <calc:Button Text="" Action=""/>
+        <calc:Button Text="" Action=""/>
+        <calc:Button Text="" Action=""/>
+    </calc:UniformGrid>
+</UserControl>

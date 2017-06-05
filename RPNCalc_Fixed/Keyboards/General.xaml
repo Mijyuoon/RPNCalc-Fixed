@@ -1,0 +1,55 @@
+﻿<UserControl
+    x:Class="RPNCalc.Keyboards.General"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:RPNCalc.Keyboards"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:calc="using:RPNCalc.Controls"
+    mc:Ignorable="d">
+
+    <calc:UniformGrid Orientation="Horizontal" AspectRatio="1.5" Columns="6">
+        <calc:Button Text="±x" Action="f:neg"/>
+        <calc:Button Text="1/x" Action="f:inv"/>
+        <calc:Button Text="❘x❘" Action="f:abs"/>
+        <calc:Button Text="⌈x⌉" Action="f:ceil"/>
+        <calc:Button Text="⌊x⌋" Action="f:floor"/>
+        <calc:Button Text="⌈x⌋ₙ" Action="f:round"/>
+        <calc:Button Text="xʸ" Action="f:pow"/>
+        <calc:Button Text="eˣ" Action="f:exp"/>
+        <calc:Button Text="√" Action="f:sqrt"/>
+        <calc:Button Text="ⁿ√" Action="f:nthrt"/>
+        <calc:Button Text="ln" Action="f:ln"/>
+        <calc:Button Text="log" Action="f:log"/>
+        <calc:Button Text="mod" Action="f:mod"/>
+        <calc:Button Text="n!" Action="f:fact"/>
+        <calc:Button Text="sin" Action="f:sin">
+            <FlyoutBase.AttachedFlyout>
+                <MenuFlyout>
+                    <calc:FlyoutItem Text="sin⁻¹" Action="f:asin"/>
+                    <calc:FlyoutItem Text="sinh" Action="f:sinh"/>
+                    <calc:FlyoutItem Text="sinh⁻¹" Action="f:asinh"/>
+                </MenuFlyout>
+            </FlyoutBase.AttachedFlyout>
+        </calc:Button>
+        <calc:Button Text="cos" Action="f:cos">
+            <FlyoutBase.AttachedFlyout>
+                <MenuFlyout>
+                    <calc:FlyoutItem Text="cos⁻¹" Action="f:acos"/>
+                    <calc:FlyoutItem Text="cosh" Action="f:cosh"/>
+                    <calc:FlyoutItem Text="cosh⁻¹" Action="f:acosh"/>
+                </MenuFlyout>
+            </FlyoutBase.AttachedFlyout>
+        </calc:Button>
+        <calc:Button Text="tan" Action="f:tan">
+            <FlyoutBase.AttachedFlyout>
+                <MenuFlyout>
+                    <calc:FlyoutItem Text="tan⁻¹" Action="f:atan"/>
+                    <calc:FlyoutItem Text="tanh" Action="f:tanh"/>
+                    <calc:FlyoutItem Text="tanh⁻¹" Action="f:atanh"/>
+                </MenuFlyout>
+            </FlyoutBase.AttachedFlyout>
+        </calc:Button>
+        <calc:Button Text="π" Action="f:.pi"/>
+    </calc:UniformGrid>
+</UserControl>

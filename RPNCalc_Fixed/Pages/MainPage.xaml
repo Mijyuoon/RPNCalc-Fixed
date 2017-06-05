@@ -1,0 +1,67 @@
+﻿<Page
+    x:Class="RPNCalc.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:RPNCalc"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:calc="using:RPNCalc.Controls"
+    xmlns:kbd="using:RPNCalc.Keyboards"
+    mc:Ignorable="d">
+
+    <Page.BottomAppBar>
+        <CommandBar>
+            <AppBarButton Click="OnNavigateTo"  Icon="List" Label="Functions" Tag="RPNCalc.FunctionsPage"/>
+            <AppBarButton Click="OnSwitchKeyboard" Icon="Keyboard" Label="Keyboards">
+                <FlyoutBase.AttachedFlyout>
+                    <MenuFlyout>
+                        <MenuFlyoutItem Click="OnSwitchKeyboard" Tag="0" Text="General"/>
+                        <MenuFlyoutItem Click="OnSwitchKeyboard" Tag="1" Text="Programming"/>
+                        <MenuFlyoutItem Click="OnSwitchKeyboard" Tag="2" Text="Registers"/>
+                        <MenuFlyoutItem Click="OnSwitchKeyboard" Tag="3" Text="Constants"/>
+                    </MenuFlyout>
+                </FlyoutBase.AttachedFlyout>
+            </AppBarButton>
+            <AppBarButton Click="OnNavigateTo" Icon="Setting" Label="Settings" Tag="RPNCalc.SettingsPage"/>
+        </CommandBar>
+    </Page.BottomAppBar>
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <calc:ProgramBox Grid.Row="0" x:Name="program"  Margin="0,0,0,5"/>
+        <calc:OutputBox Grid.Row="1" x:Name="output" Margin="0,0,0,5"/>
+        <calc:PanelSelector Grid.Row="2" x:Name="kbds" Margin="0,0,0,5">
+            <kbd:General/>
+            <kbd:Programming/>
+            <kbd:Registers/>
+            <kbd:Constants/>
+        </calc:PanelSelector>
+        <calc:UniformGrid Grid.Row="3" Orientation="Horizontal" AspectRatio="1.5" Columns="5">
+            <calc:Button Text="7" TextStyle="B" Action="d:7"/>
+            <calc:Button Text="8" TextStyle="B" Action="d:8"/>
+            <calc:Button Text="9" TextStyle="B" Action="d:9"/>
+            <calc:Button Text="&#xE083;" Action="s:del"/>
+            <calc:Button Text="CLR" Action="s:clr"/>
+            <calc:Button Text="4" TextStyle="B" Action="d:4"/>
+            <calc:Button Text="5" TextStyle="B" Action="d:5"/>
+            <calc:Button Text="6" TextStyle="B" Action="d:6"/>
+            <calc:Button Text="×" Action="f:mul"/>
+            <calc:Button Text="÷" Action="f:div"/>
+            <calc:Button Text="1" TextStyle="B" Action="d:1"/>
+            <calc:Button Text="2" TextStyle="B" Action="d:2"/>
+            <calc:Button Text="3" TextStyle="B" Action="d:3"/>
+            <calc:Button Text="+" Action="f:add"/>
+            <calc:Button Text="−" Action="f:sub"/>
+            <calc:Button Text="0" TextStyle="B" Action="d:0"/>
+            <calc:Button Text="." TextStyle="B" Action="d:p"/>
+            <calc:Button Text="×10ⁿ" Action="f:mag"/>
+            <calc:Button Text="ans" Action="f:ans"/>
+            <calc:Button Text="⤶" Action="s:exe"/>
+        </calc:UniformGrid>
+    </Grid>
+</Page>

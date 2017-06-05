@@ -1,0 +1,25 @@
+﻿<UserControl
+    x:Name="root"
+    x:Class="RPNCalc.Controls.OutputBox"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:RPNCalc.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="25"
+    d:DesignWidth="100">
+
+    <Grid BorderThickness="2" BorderBrush="{ThemeResource SystemControlBackgroundBaseMediumLowBrush}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+
+        <local:Button x:Name="bSgn" Grid.Column="0" Text="±" VerticalAlignment="Stretch" Click="OnChangeSign"
+                      Width="{Binding ActualHeight, ElementName=bSgn, Converter={StaticResource MathMultiply}, ConverterParameter=1.5}"/>
+        <TextBlock x:Name="lMan" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Right" Padding="0,2,2,2" FontFamily="Segoe UI Symbol" FontSize="20"/>
+        <TextBlock x:Name="lExp" Grid.Column="2" VerticalAlignment="Top" HorizontalAlignment="Right" Padding="0,2,5,2" FontFamily="Segoe UI Symbol" FontSize="14"/>
+    </Grid>
+</UserControl>
